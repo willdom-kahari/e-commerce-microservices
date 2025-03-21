@@ -1,4 +1,4 @@
-package com.waduclay.customer.exception;
+package com.waduclay.ecommerce.exception;
 
 
 import lombok.Data;

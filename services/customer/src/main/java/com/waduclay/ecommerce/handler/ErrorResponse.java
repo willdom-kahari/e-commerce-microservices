@@ -1,4 +1,4 @@
-package com.waduclay.customer.handler;
+package com.waduclay.ecommerce.handler;
 
 
 import java.util.Map;

@@ -1,7 +1,7 @@
-package com.waduclay.customer.customer;
+package com.waduclay.ecommerce.customer;
 
 
-import com.waduclay.customer.exception.CustomerNotFoundException;
+import com.waduclay.ecommerce.exception.CustomerNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang.StringUtils;

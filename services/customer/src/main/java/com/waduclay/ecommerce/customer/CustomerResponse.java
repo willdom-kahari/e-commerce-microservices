@@ -1,4 +1,4 @@
-package com.waduclay.customer.customer;
+package com.waduclay.ecommerce.customer;
 
 
 /**

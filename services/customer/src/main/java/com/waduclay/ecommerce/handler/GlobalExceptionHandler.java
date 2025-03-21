@@ -1,7 +1,7 @@
-package com.waduclay.customer.handler;
+package com.waduclay.ecommerce.handler;
 
 
-import com.waduclay.customer.exception.CustomerNotFoundException;
+import com.waduclay.ecommerce.exception.CustomerNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
