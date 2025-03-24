@@ -1,6 +1,7 @@
 package com.waduclay.ecommerce.product;
 
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,9 @@ public class ProductService {
     }
 
     public ProductResponse findById(Integer id) {
-        return null;
+        return productRepository.findById(id)
+                .map(ProductResponse::of)
+                .orElseThrow(()-> new EntityNotFoundException("Product with id %d not found".formatted(id)));
     }
 
     public List<ProductResponse> findAllProducts() {
