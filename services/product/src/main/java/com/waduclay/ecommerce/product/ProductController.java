@@ -31,5 +31,15 @@ public class ProductController {
         return ResponseEntity.ok(productService.purchaseProducts(requests));
     }
 
-    @GetMapping("/{}")
+    @GetMapping("/{product-id}")
+    public ResponseEntity<ProductResponse> findById(
+            @PathVariable("product-id") Integer id
+    ){
+        return ResponseEntity.ok(productService.findById(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ProductResponse>> findAllProducts() {
+        return ResponseEntity.ok(productService.findAllProducts());
+    }
 }

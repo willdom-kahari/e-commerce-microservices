@@ -20,4 +20,12 @@ public class ProductService {
     public List<ProductPurchaseResponse> purchaseProducts(List<ProductPurchaseRequest> requests) {
         return null;
     }
+
+    public ProductResponse findById(Integer id) {
+        return null;
+    }
+
+    public List<ProductResponse> findAllProducts() {
+        return null;
+    }
 }
