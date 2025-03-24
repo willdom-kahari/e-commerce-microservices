@@ -31,6 +31,8 @@ public class ProductService {
     }
 
     public List<ProductResponse> findAllProducts() {
-        return null;
+        return productRepository.findAll().stream()
+                .map(ProductResponse::of)
+                .toList();
     }
 }
