@@ -13,8 +13,10 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
+    private final ProductRepository productRepository;
     public Integer createProduct(@Valid ProductRequest request) {
-        return null;
+        Product product = Product.of(request);
+        return productRepository.save(product).getId();
     }
 
     public List<ProductPurchaseResponse> purchaseProducts(List<ProductPurchaseRequest> requests) {
