@@ -22,4 +22,13 @@ public class OrderLine {
     private Order order;
     private Integer productId;
     private double quantity;
+
+    public static OrderLine of(OrderLineRequest orderLineRequest) {
+        return OrderLine.builder()
+                .id(orderLineRequest.id())
+                .productId(orderLineRequest.productId())
+                .order(Order.builder().id(orderLineRequest.orderId()).build())
+                .quantity(orderLineRequest.quantity())
+                .build();
+    }
 }
