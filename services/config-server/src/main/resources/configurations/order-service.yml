@@ -1,18 +1,17 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/orders
+    url: jdbc:postgresql://localhost:5432/order
     username: root
     password: waduclay
-
+    driver-class-name: org.postgresql.Driver
     jpa:
       hibernate:
         ddl-auto: update
       database: postgresql
       database-platform: org.hibernate.dialect.PostgreSQLDialect
-    application:
-      name: order-service
 server:
   port: 8070
+
 application:
   config:
     customer-url: http://localhost:8222/api/v1/customers
