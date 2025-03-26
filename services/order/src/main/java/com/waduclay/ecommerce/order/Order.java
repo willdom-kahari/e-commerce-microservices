@@ -42,4 +42,14 @@ public class Order {
     @LastModifiedDate
     @Column(insertable = false)
     private LocalDateTime lastModifiedDate;
+
+    public static Order of(OrderRequest orderRequest) {
+        return Order.builder()
+                .id(orderRequest.id())
+                .customerId(orderRequest.customerId())
+                .reference(orderRequest.reference())
+                .totalAmount(orderRequest.amount())
+                .paymentMethod(orderRequest.paymentMethod())
+                .build();
+    }
 }
