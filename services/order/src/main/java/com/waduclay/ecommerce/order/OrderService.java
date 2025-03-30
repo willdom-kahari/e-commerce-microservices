@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -48,5 +49,12 @@ public class OrderService {
 
         orderProducer.sendOrderConfirmation(OrderConfirmation.of(order, customer, products));
         return order.getId();
+    }
+
+    public List<OrderResponse> findAll() {
+        return orderRepository.findAll()
+               .stream()
+               .map(OrderResponse::of)
+               .collect(Collectors.toList());
     }
 }
