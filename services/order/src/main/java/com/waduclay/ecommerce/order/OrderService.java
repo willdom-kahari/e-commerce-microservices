@@ -9,6 +9,7 @@ import com.waduclay.ecommerce.orderline.OrderLineRequest;
 import com.waduclay.ecommerce.orderline.OrderLineService;
 import com.waduclay.ecommerce.product.ProductClient;
 import com.waduclay.ecommerce.product.PurchaseRequest;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -61,6 +62,6 @@ public class OrderService {
     public OrderResponse findById(Integer id) {
         return orderRepository.findById(id)
                .map(OrderResponse::of)
-               .orElseThrow(() -> new BusinessException("Order with id %d not found".formatted(id)));
+               .orElseThrow(() -> new EntityNotFoundException("Order with id %d not found".formatted(id)));
     }
 }
