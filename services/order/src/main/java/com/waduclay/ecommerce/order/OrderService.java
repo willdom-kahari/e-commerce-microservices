@@ -57,4 +57,10 @@ public class OrderService {
                .map(OrderResponse::of)
                .collect(Collectors.toList());
     }
+
+    public OrderResponse findById(Integer id) {
+        return orderRepository.findById(id)
+               .map(OrderResponse::of)
+               .orElseThrow(() -> new BusinessException("Order with id %d not found".formatted(id)));
+    }
 }
