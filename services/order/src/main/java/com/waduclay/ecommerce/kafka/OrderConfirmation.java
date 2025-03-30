@@ -2,6 +2,7 @@ package com.waduclay.ecommerce.kafka;
 
 
 import com.waduclay.ecommerce.customer.CustomerResponse;
+import com.waduclay.ecommerce.order.Order;
 import com.waduclay.ecommerce.order.PaymentMethod;
 import com.waduclay.ecommerce.product.PurchaseResponse;
 
@@ -18,4 +19,13 @@ public record OrderConfirmation(
         CustomerResponse customer,
         List<PurchaseResponse> products
 ) {
+    public static OrderConfirmation of(Order order, CustomerResponse customer, List<PurchaseResponse> products) {
+        return new OrderConfirmation(
+                order.getReference(),
+                order.getTotalAmount(),
+                order.getPaymentMethod(),
+                customer,
+                products
+        );
+    }
 }

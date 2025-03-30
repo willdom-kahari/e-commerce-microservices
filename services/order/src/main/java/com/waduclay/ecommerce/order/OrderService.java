@@ -3,6 +3,8 @@ package com.waduclay.ecommerce.order;
 
 import com.waduclay.ecommerce.customer.CustomerClient;
 import com.waduclay.ecommerce.exception.BusinessException;
+import com.waduclay.ecommerce.kafka.OrderConfirmation;
+import com.waduclay.ecommerce.kafka.OrderProducer;
 import com.waduclay.ecommerce.orderline.OrderLineRequest;
 import com.waduclay.ecommerce.orderline.OrderLineService;
 import com.waduclay.ecommerce.product.ProductClient;
@@ -23,6 +25,7 @@ public class OrderService {
     private final ProductClient productClient;
     private final OrderRepository orderRepository;
     private final OrderLineService orderLineService;
+    private final OrderProducer orderProducer;
     public Integer createOrder(@Valid OrderRequest request) {
         //check the customer (OpenFeign)
         var customer = customerClient.findCustomerById(request.customerId())
@@ -43,6 +46,7 @@ public class OrderService {
 
         // send the order confirmation (notification microservice - kafka)
 
-        return null;
+        orderProducer.sendOrderConfirmation(OrderConfirmation.of(order, customer, products));
+        return order.getId();
     }
 }
