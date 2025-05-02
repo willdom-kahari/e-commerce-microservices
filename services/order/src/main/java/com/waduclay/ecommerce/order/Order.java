@@ -21,13 +21,13 @@ import static jakarta.persistence.EnumType.STRING;
 @Setter
 @Entity
 @Builder
+@Table(name = "customer_order")
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "customer_orders")
 @EntityListeners(AuditingEntityListener.class)
 public class Order {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String reference;
     private BigDecimal totalAmount;

@@ -11,11 +11,12 @@ import lombok.*;
 @Setter
 @Entity
 @Builder
+@Table(name = "customer_line")
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderLine {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
     @JoinColumn(name = "order_id")

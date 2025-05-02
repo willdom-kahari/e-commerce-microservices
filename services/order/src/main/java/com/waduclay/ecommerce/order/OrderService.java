@@ -41,7 +41,8 @@ public class OrderService {
         var products = productClient.purchaseProducts(request.products());
 
         // persist order
-        var order = orderRepository.save(Order.of(request));
+        Order awaiting = Order.of(request);
+        var order = orderRepository.save(awaiting);
 
         // persist order lines
         for(PurchaseRequest purchaseRequest: request.products()) {
