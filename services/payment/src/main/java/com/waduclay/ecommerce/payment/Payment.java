@@ -18,7 +18,7 @@ import java.util.UUID;
 @Setter
 @Builder
 @Entity
-@Table("payments")
+@Table(name = "payments")
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
