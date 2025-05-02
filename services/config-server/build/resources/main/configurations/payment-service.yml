@@ -4,11 +4,7 @@ spring:
     username: root
     password: waduclay
     driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
   kafka:
     producer:
       bootstrap-servers: localhost:9092
@@ -17,3 +13,11 @@ spring:
       properties:
         spring.json.type.mapping: paymentConfirmation:com.waduclay.ecommerce.notification.PaymentNotificationRequest
 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8060
