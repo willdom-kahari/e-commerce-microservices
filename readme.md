@@ -1,6 +1,6 @@
 # Learning Microservices
 
-Learn about microservices [Mastering Microservices](https://www.youtube.com/watch?v=jdeSV0GRvwI).
+Learn about microservices from [BouAli](https://www.youtube.com/watch?v=jdeSV0GRvwI).
 
 ### Key Takeaways
 * Configuration server
